@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  gpu-docker:
+    image: wjq-python:latest  #  请把wjq 换成你自己的用户名
+    container_name: wjq       #  请把wjq 换成你自己的用户名
+    ports:
+      - 42123:22              #  请把 42123 换成你自己的端口号
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /mnt/geogpt-gpfs/zhijiang/home/wjq:/data   #  请把 前面的工作路径换成你自己的
+    command: /usr/sbin/sshd -D
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 8
+            capabilities: [gpu]
