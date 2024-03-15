@@ -36,8 +36,10 @@ if [ -z "$image" ]; then
 	exit 3
 fi
 
-echo "Backup $USR-python.tar to $USR-bak.tar"
-mv $USR-python.tar $USR-bak.tar
+if [ -f $USR-python.tar ]; then
+	echo "Backup $USR-python.tar to $USR-bak.tar"
+	mv $USR-python.tar $USR-bak.tar
+fi
 
 echo "Save image $image to file $USR-python.tar"
 docker save -o $USR-python.tar $image
