@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  gpu-docker:
+  wjq-docker:                 #  请把wjq 换成你自己的用户名
     image: wjq-python:latest  #  请把wjq 换成你自己的用户名
     container_name: wjq       #  请把wjq 换成你自己的用户名
     ports:
